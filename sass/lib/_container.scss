@@ -1,0 +1,40 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 1
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px lightslategrey;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.themes-table {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+}
+
+.show-table .themes-table {
+  opacity: 1;
+  pointer-events: all;
+  position: relative;
+}
