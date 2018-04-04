@@ -1,7 +1,6 @@
 class State {
   constructor(state) {
     this.subject = state.subject;
-    this.periodType = state.periodType;
     this.periodNumber = state.periodNumber;
     this.theme = state.theme;
   }
@@ -9,12 +8,11 @@ class State {
   setHash() {
     const {
       subject,
-      periodType,
       periodNumber,
       theme
     } = this;
 
-    window.location.hash = `${subject}/${periodType}/${periodNumber}/${theme}`;
+    window.location.hash = `${subject}/${periodNumber}/${theme}`;
   }
 
   /**
@@ -22,9 +20,53 @@ class State {
    * @param {String} id - id of region
    * @return {Object}
    */
-  getCurrentRegList(id) {
-    return this.currentTotal[this.subject].month[id];
+  getCurrentGraph() {
+    let weekly = window.weekly;
+    // console.log(weekly);
+    let obj = {};
+    switch (this.subject) {
+      case `total`:
+        switch (this.theme) {
+          case `total`:
+            obj = weekly.total[this.periodNumber];
+            break;
+          case `tones-total`:
+            obj = weekly.tonesTotal[this.periodNumber];
+            break;
+          case `tones-beringer`:
+            obj = weekly.tonesBeringer[this.periodNumber];
+            break;
+          case `compare-pradaxa`:
+            obj = weekly.tonesPradaxa[this.periodNumber];
+            break;
+        }
+        break;
+      case `Beringer`:
+        switch (this.theme) {
+          case `tones-sites`:
+            obj = weekly.beringer.sites[this.periodNumber];
+            break;
+          case `tones-themes`:
+            obj = weekly.beringer.themes[this.periodNumber];
+            break;
+        }
+        break;
+      case `Pradaxa`:
+        switch (this.theme) {
+          case `tones-sites`:
+            obj = weekly.pradaxa.sites[this.periodNumber];
+            break;
+          case `tones-themes`:
+            obj = weekly.pradaxa.themes[this.periodNumber];
+            break;
+        }
+
+    }
+    console.log(obj);
+    return obj;
   }
+
+
   getProp(state) {
     return this[state];
   }
@@ -53,13 +95,11 @@ class State {
 }
 
 const defaultState = {
-  "subject": `x5`,
-  "region": `Russia`,
-  "periodType": `month`,
+  "subject": `total`,
   "periodNumber": `0`,
-  "theme": `all`,
-  "screen": `subjects`
+  "theme": `total`,
 };
 const currentState = new State(defaultState);
+console.log(currentState);
 window.currentState = currentState;
 export default currentState;

@@ -1,12 +1,12 @@
 import showScreen from './showScreen.js';
 
 function onHashChange() {
-  window.start = Date.now();
+  const start = Date.now();
   const hashSplit = window.location.hash.substr(1).split(`/`);
 
   const subjChoise = window.data.subjChoise;
   const subjNames = window.data.subjNames;
-  const periodNumber = window.data.periodNumber;
+  const periodNumberInput = window.data.periodNumber;
 
   window.currentState.setProps({
     subject: hashSplit[0] || `x5`,
@@ -16,13 +16,15 @@ function onHashChange() {
     theme: hashSplit[4] || `obschee_otnoshenie_k_seti`,
     screen: hashSplit[5] || `subjects`,
   }, true);
+  const {subject, periodNumber, screen} = window.currentState;
 
-  if (window.currentState.subject !== `All`) {
-    subjChoise.innerText = subjNames[window.currentState.subject];
+
+  if (subject !== `All`) {
+    subjChoise.innerText = subjNames[subject];
   }
-  periodNumber.value = window.currentState.periodNumber;
-
-  showScreen(window.currentState.screen);
+  periodNumberInput.value = periodNumber;
+console.log(Date.now() - start);
+  showScreen(screen);
 }
 
 export default onHashChange;

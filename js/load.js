@@ -1,3 +1,5 @@
+import totalCalc from "./calculate";
+
 /**
  * fetch polyfill
  */
@@ -486,12 +488,11 @@
   self.fetch.polyfill = true;
 })(typeof self !== `undefined` ? self : this);
 
-function loadXMLDoc() {
-  fetch(`https://monitoring.sn-mg.ru/service/monitoring/dashboards/?reportId=11475`).then(function (response) {
+function loadXMLDoc(url) {
+  fetch(url).then(function (response) {
     return response.json();
   }).then((json) => {
-    window.data.weekly = json.datasheets[0].sheetData;
-    console.log(window.data.weekly);
+    window.weekly = totalCalc(json.datasheets);
   }).catch((alert) => {
     console.error(alert);
   });
