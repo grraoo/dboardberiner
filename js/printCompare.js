@@ -8,7 +8,7 @@ function printCompare(dataObj) {
       type: `bar`
     },
     title: {
-      text: `Упоминания`
+      text: dataObj.header
     },
     xAxis: {
       categories: dataObj.names,
@@ -17,7 +17,7 @@ function printCompare(dataObj) {
     yAxis: {
       allowDecimals: false,
       title: {
-        text: `%`
+        text: `Количество сообщений`
       }
     },
     tooltip: {

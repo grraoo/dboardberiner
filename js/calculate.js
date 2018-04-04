@@ -19,7 +19,7 @@ function sortAsc(a, b) {
   });
   return Math.sign(itemValB - itemValA);
 }
-const Q_DRUGS = [`eliquix`, `xalreto`];
+const Q_DRUGS = [`eliquix`, `xarelto`];
 
 const moods = [`negative`, `neutral`, `positive`];
 const weeksSelect = document.getElementById(`weeksIndex`);
@@ -35,7 +35,6 @@ function totalCalc(weeks) {
   const pradaxaThemes = {};
 
   weeks.forEach((element, index) => {
-
     let option = document.createElement(`option`);
     option.innerText = element.title;
     option.value = index;
@@ -49,7 +48,7 @@ function totalCalc(weeks) {
       categories: [],
       series: [
         {
-          name: `Берингер`,
+          name: `Берингер Ингельхайм`,
           data: beringerData
         },
         {
@@ -115,7 +114,8 @@ function totalCalc(weeks) {
       positive: [],
       names: [],
       text: element.sheetData.beringer.intro_sites,
-      stacking: `normal`
+      stacking: `normal`,
+      header: `Тональность по площадкам`
     };
     beringerThemes[title] = {
       negative: [],
@@ -123,7 +123,8 @@ function totalCalc(weeks) {
       positive: [],
       names: [],
       text: element.sheetData.beringer.intro_themes,
-      stacking: `normal`
+      stacking: `normal`,
+      header: `Тональность по темам`
     };
     pradaxaSites[title] = {
       negative: [],
@@ -131,7 +132,8 @@ function totalCalc(weeks) {
       positive: [],
       names: [],
       text: element.sheetData.pradaxa.intro_sites,
-      stacking: `normal`
+      stacking: `normal`,
+      header: `Тональность по площадкам`
     };
     pradaxaThemes[title] = {
       negative: [],
@@ -139,7 +141,8 @@ function totalCalc(weeks) {
       positive: [],
       names: [],
       text: element.sheetData.pradaxa.intro_themes,
-      stacking: `normal`
+      stacking: `normal`,
+      header: `Тональность по темам`
     };
 
     const pradaSites = element.sheetData.pradaxa.sites.sort(sortAsc);

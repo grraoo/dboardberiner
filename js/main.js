@@ -53,7 +53,7 @@ tabs.addEventListener(`click`, function (e) {
       case `Beringer`:
         totalGraphs.classList.add(`hide`);
         drugGraphs.classList.remove(`hide`);
-        printCompare(window.weekly.beringer.sites[window.currentState.periodNumber]); {
+        printCompare(window.weekly.beringer.themes[window.currentState.periodNumber]); {
           let activeBtn = document.querySelector(`.left-btns button.active`);
           if (activeBtn) {
             activeBtn.classList.remove(`active`);
@@ -65,7 +65,7 @@ tabs.addEventListener(`click`, function (e) {
       case `Pradaxa`:
         totalGraphs.classList.add(`hide`);
         drugGraphs.classList.remove(`hide`);
-        printCompare(window.weekly.pradaxa.sites[window.currentState.periodNumber]); {
+        printCompare(window.weekly.pradaxa.themes[window.currentState.periodNumber]); {
           let activeBtn = document.querySelector(`.left-btns button.active`);
           if (activeBtn) {
             activeBtn.classList.remove(`active`);
