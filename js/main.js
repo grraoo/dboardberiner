@@ -124,6 +124,5 @@ weekSwitch.addEventListener(`click`, function (e) {
     } else {
       printCompare(graphObj);
     }
-    console.log(dir, window.currentState);
   }
 });

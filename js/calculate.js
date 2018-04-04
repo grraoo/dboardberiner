@@ -25,7 +25,6 @@ const moods = [`negative`, `neutral`, `positive`];
 const weeksSelect = document.getElementById(`weeksIndex`);
 
 function totalCalc(weeks) {
-  console.log(weeks);
   const total = {};
   const mentions = {};
   const mentionsBeringer = {};
@@ -48,7 +47,8 @@ function totalCalc(weeks) {
     let pradaxaData = [];
     total[title].chart = {
       categories: [],
-      series: [{
+      series: [
+        {
           name: `Берингер`,
           data: beringerData
         },
@@ -218,22 +218,10 @@ function totalCalc(weeks) {
     }
   };
 
-  // let title = weeks[1].title;
   // картина за две недели
   printChart(total[0]);
 
-  // тональность в общем
-  // printCompare(calculated.tonesTotal[title]);
-
-  // сравнение Прадаксы
-  // printCompare(calculated.tonesBeringer[title]);
-
-  // Прадакса
-  // printCompare(calculated.tonesPradaxa[title]);
-
-  // printCompare(beringerSites[title]);
   calculated.weeks = weeks.length;
-  console.log(`calculated`, calculated);
   return calculated;
 }
 

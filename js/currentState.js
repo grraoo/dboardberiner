@@ -62,7 +62,6 @@ class State {
         }
 
     }
-    console.log(obj);
     return obj;
   }
 
@@ -100,6 +99,5 @@ const defaultState = {
   "theme": `total`,
 };
 const currentState = new State(defaultState);
-console.log(currentState);
 window.currentState = currentState;
 export default currentState;

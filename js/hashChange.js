@@ -1,7 +1,7 @@
 import showScreen from './showScreen.js';
 
 function onHashChange() {
-  const start = Date.now();
+  // const start = Date.now();
   const hashSplit = window.location.hash.substr(1).split(`/`);
 
   const subjChoise = window.data.subjChoise;
@@ -23,7 +23,7 @@ function onHashChange() {
     subjChoise.innerText = subjNames[subject];
   }
   periodNumberInput.value = periodNumber;
-console.log(Date.now() - start);
+  // console.log(Date.now() - start);
   showScreen(screen);
 }
 
